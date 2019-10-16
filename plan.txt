@@ -1,0 +1,2 @@
+1. planning and setting up views and components
+2. setup router
