@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
 			<router-link to="/" class="navbar-brand">Stock Trader</router-link>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -9,7 +9,7 @@
 						<router-link to="/portfolio" class="nav-item nav-link" active-class="active"><a>Portfolio</a></router-link>
 					<!-- </li> -->
 					<li class="nav-item">
-						<router-link to="/stocks" class="nav-link" active-class="active"><a>Stocks</a></router-link>
+						<router-link to="/stocks" class="nav-link" active-class="active"><a>Stock</a></router-link>
 					</li>
 				</ul>
 				<ul class="navbar-nav">
@@ -25,13 +25,13 @@
 					</li>
 				</ul>
 
-				<form class="form-inline my-2 my-lg-0">
+				<!-- <form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+				</form> -->
+			</div>
 			</div>
 		</nav>
-	</div>
 </template>
 
 <script>
@@ -41,8 +41,24 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
-	padding-left: 50px;
-	padding-right: 50px;
+.container-fluid {
+margin-left: 10px;
+margin-right: 10px;
+}
+.active {
+	background: rgb(230, 228, 228)
+}
+
+@media only screen and (min-width: 991px) {
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  .nav-link {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 0;
+  }
 }
 </style>
