@@ -1,2 +1,5 @@
 1. planning and setting up views and components
 2. setup router
+3. npm install bootstrap jquery popper.js --save
+4. npm install --save-dev node-sass sass-loader
+5. the above command is require if we create a seperate scss file
