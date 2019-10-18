@@ -10,6 +10,11 @@ import Header from './components/layouts/Header'
 export default {
 	components: {
 		appHeader: Header
+	},
+
+	created() {
+		console.log('app created')
+		this.$store.dispatch('initStocks')
 	}
 }
 </script>

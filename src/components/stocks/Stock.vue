@@ -1,7 +1,7 @@
 <template>
-	<div class="container-fluid">
-		<!-- <div class="col-sm-6 col-md-4"> -->
-		<div class="card mt-3" style="max-width: 28rem;">
+	<div>
+		<!-- <div class="card mt-3" style="max-width: 23rem;"> -->
+			<div class="card mt-3 ml-2 mr-2" style="max-width: 100%;">
 			<!-- <div class="card-header"> -->
 				<h4 class="card-header">{{ stock.name }}
 				<small>(Price: {{ stock.price }})</small>
@@ -23,11 +23,7 @@
 <script>
 export default {
 	props: ['stock'],
-	/*
-	created(){
-		alert('jaja')
-	},
-	*/
+	
 	data() {
 		return {
 			quantity: 0
@@ -49,5 +45,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>

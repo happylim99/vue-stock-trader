@@ -1,6 +1,14 @@
 <template>
-	<div>
-		<app-stock v-for="(stock, index) in stocks" :stock="stock" :key="index"/>
+	<div class="stock-both-padding">
+		<!-- <app-stock v-for="(stock, index) in stocks" :stock="stock" :key="index"/> -->
+		<div class="row no-gutters">
+    	<!-- <div class="col-md-4 bit" v-for="(stock, index) in stocks" :key="index"> -->
+			<div class="col-xs-8 col-md-4 col-lg-4 col-sm-4" v-for="(stock, index) in stocks" :key="index">
+				<div class="text-center">
+					<app-stock :stock="stock"/>
+				</div>
+    	</div>
+		</div>
 	</div>
 </template>
 
@@ -9,24 +17,25 @@ import Stock from '../components/stocks/Stock.vue'
 export default {
 	data() {
 		return {
-			stocks: [
-				{ id: 1, name: 'BMW', price: 110 },
-				{ id: 2, name: 'Google', price: 200 },
-				{ id: 3, name: 'Apple', price: 250 },
-				{ id: 4, name: 'Twitter', price: 8 }
-			]
+			
 		}
 	},
 
 	components: {
 		appStock: Stock
+	},
+
+	computed: {
+		stocks() {
+			return this.$store.getters.stocks
+		}
 	}
 }
 </script>
 
 <style scoped>
-.container-fluid {
-margin-left: 25px;
-margin-right: 25px;
+.stock-both-padding {
+	padding-left: 30px;
+	padding-right: 30px
 }
 </style>
