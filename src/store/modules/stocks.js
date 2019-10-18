@@ -15,10 +15,10 @@ const mutations = {
 
 const actions = {
 	buyStock: ({commit}, order) => {
-		commit();
+		console.log('stock actions')
+		commit('BUY_STOCK', order);
 	},
 	initStocks: ({commit}) => {
-		console.log(stocks)
 		commit('SET_STOCKS', stocks)
 	},
 	randomizeStocks: ({commit}) => {
