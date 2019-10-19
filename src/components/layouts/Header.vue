@@ -46,7 +46,8 @@ margin-left: 10px;
 margin-right: 10px;
 }
 .active {
-	background: rgb(230, 228, 228)
+	background: rgb(230, 228, 228);
+	opacity: 10;
 }
 
 @media only screen and (min-width: 991px) {

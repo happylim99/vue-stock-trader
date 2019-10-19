@@ -30,6 +30,7 @@ const mutations = {
 
 const actions = {
 	sellStock({commit}, order) {
+		console.log('sell stock')
 		commit('SELL_STOCK', order)
 	}
 }

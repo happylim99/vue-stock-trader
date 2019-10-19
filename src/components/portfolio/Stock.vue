@@ -10,7 +10,7 @@
 					<input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
 				</div>
 				<div class="float-right">
-					<button class="btn btn-success" @click="sellStock" :disabled="+quantity <= 0 || !Number.isInteger(+quantity)">Sell</button>
+					<button class="btn btn-info" @click="sellStock" :disabled="+quantity <= 0 || !Number.isInteger(+quantity)">Sell</button>
 				</div>
 			</div>
 		</div>
@@ -29,16 +29,22 @@ export default {
 	},
 
 	methods: {
+		/*
 		...mapActions([
 			'sellStock'
 		]),
+		*/
+		...mapActions({
+			xSellStock: 'sellStock'
+		}),
 		sellStock() {
 			const order = {
 				stockId: this.stock.id,
 				stockPrice: this.stock.price,
 				quantity: this.quantity
 			}
-			this.sellStock()
+			this.xSellStock(order)
+			this.quantity = 0
 		}
 	}
 }
