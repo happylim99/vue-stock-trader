@@ -1,7 +1,8 @@
 import stocks from '@/data/stocks'
 
 const state = {
-	stocks: []
+	stocks: [],
+	amount: 0
 }
 
 const mutations = {
@@ -10,12 +11,14 @@ const mutations = {
 	},
 	'RND_STOCKS' (state) {
 		
+	},
+	CALCULATE_AMOUNT: (state, amount) => {
+		state.amount = amount
 	}
 }
 
 const actions = {
 	buyStock: ({commit}, order) => {
-		console.log('stock actions')
 		commit('BUY_STOCK', order);
 	},
 	initStocks: ({commit}) => {
@@ -30,6 +33,9 @@ const actions = {
 const getters = {
 	stocks: state => {
 		return state.stocks
+	},
+	amount: state => {
+		return state.amount
 	}
 }
 

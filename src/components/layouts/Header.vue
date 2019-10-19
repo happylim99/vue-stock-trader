@@ -5,16 +5,17 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<!-- <li class="nav-item"> -->
+					<!-- <ul class="navbar-nav"> -->
 						<router-link to="/portfolio" class="nav-item nav-link" active-class="active"><a>Portfolio</a></router-link>
-					<!-- </li> -->
 					<li class="nav-item">
 						<router-link to="/stocks" class="nav-link" active-class="active"><a>Stock</a></router-link>
 					</li>
 				</ul>
+				<strong class="navbar-text">Amount needed : {{ amount }}</strong>
+				<strong class="navbar-text">Funds : {{ funds }}</strong>
 				<ul class="navbar-nav">
 					<router-link to="#" class="nav-item nav-link" active-class="active"><a>End day</a></router-link>
-					<li class="nav-item dropdown">
+					<li class="nav-item dropdown navbar-right">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save & Load</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="#">Save Data</a>
@@ -35,8 +36,16 @@
 </template>
 
 <script>
+import { numberWithCommas } from '@/customFunction'
 export default {
-
+	computed: {
+		funds() {
+			return numberWithCommas(this.$store.getters.funds)
+		},
+		amount() {
+			return numberWithCommas(this.$store.getters.amount)
+		}
+	}
 }
 </script>
 
@@ -47,19 +56,31 @@ margin-right: 10px;
 }
 .active {
 	background: rgb(230, 228, 228);
-	opacity: 10;
+	border-radius: 50px;
 }
+
+/* .navbar-center
+{
+    position: absolute;
+		width: 100%;
+    left: 0;
+    text-align: center;
+} */
+
 
 @media only screen and (min-width: 991px) {
   .navbar {
     padding-top: 0;
     padding-bottom: 0;
   }
-  
-  .nav-link {
+  /* .nav-link {
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 0;
+  } */
+	.nav-link {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 </style>

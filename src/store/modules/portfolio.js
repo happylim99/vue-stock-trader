@@ -1,5 +1,5 @@
 const state = {
-	funds: 10000,
+	funds: 100000,
 	stocks: []
 }
 
@@ -30,7 +30,6 @@ const mutations = {
 
 const actions = {
 	sellStock({commit}, order) {
-		console.log('sell stock')
 		commit('SELL_STOCK', order)
 	}
 }

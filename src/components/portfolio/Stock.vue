@@ -7,10 +7,10 @@
 			<div class="card-body">
 				<h5 class="card-title">Success card title</h5>
 				<div class="card-text float-left">
-					<input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
+					<input type="number" class="form-control" placeholder="Quantity" v-model="quantity" :class="{danger:insufficientQuantity}">
 				</div>
 				<div class="float-right">
-					<button class="btn btn-info" @click="sellStock" :disabled="+quantity <= 0 || !Number.isInteger(+quantity)">Sell</button>
+					<button class="btn btn-info" @click="sellStock" :disabled="insufficientQuantity || +quantity <= 0 || !Number.isInteger(+quantity)">{{ insufficientQuantity ? 'Not enough stocks' : 'Sell'}}</button>
 				</div>
 			</div>
 		</div>
@@ -25,6 +25,12 @@ export default {
 	data() {
 		return {
 			quantity: 0
+		}
+	},
+
+	computed: {
+		insufficientQuantity() {
+			return this.quantity > this.stock.quantity
 		}
 	},
 
@@ -51,6 +57,7 @@ export default {
 </script>
 
 <style scoped>
-
-
+.danger {
+	border: 1px solid red;
+}
 </style>
