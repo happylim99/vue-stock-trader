@@ -12,7 +12,7 @@
 					</li>
 				</ul>
 				<strong class="navbar-text">Amount needed : {{ amount }}</strong>
-				<strong class="navbar-text">Funds : {{ funds }}</strong>
+				<strong class="navbar-text">Funds : {{ funds | currency }}</strong>
 				<ul class="navbar-nav">
 					<router-link to="#" class="nav-item nav-link" active-class="active"><a>End day</a></router-link>
 					<li class="nav-item dropdown navbar-right">
@@ -40,7 +40,8 @@ import { numberWithCommas } from '@/customFunction'
 export default {
 	computed: {
 		funds() {
-			return numberWithCommas(this.$store.getters.funds)
+			// return numberWithCommas(this.$store.getters.funds)
+			return this.$store.getters.funds
 		},
 		amount() {
 			return numberWithCommas(this.$store.getters.amount)
