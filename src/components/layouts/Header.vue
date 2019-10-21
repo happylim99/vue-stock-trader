@@ -14,8 +14,8 @@
 				<strong class="navbar-text">Amount needed : {{ amount }}</strong>
 				<strong class="navbar-text">Funds : {{ funds | currency }}</strong>
 				<ul class="navbar-nav">
-					<router-link to="#" class="nav-item nav-link" active-class="active"><a>End day</a></router-link>
-					<li class="nav-item dropdown navbar-right">
+					<router-link to="#" class="nav-item nav-link" active-class="active" @click.native="endDay"><a>End day</a></router-link>
+					<li class="nav-item dropdown open">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save & Load</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="#">Save Data</a>
@@ -37,6 +37,8 @@
 
 <script>
 import { numberWithCommas } from '@/customFunction'
+import { mapActions } from 'vuex'
+
 export default {
 	computed: {
 		funds() {
@@ -46,11 +48,24 @@ export default {
 		amount() {
 			return numberWithCommas(this.$store.getters.amount)
 		}
+	},
+
+	methods: {
+		...mapActions([
+			'randomizeStocks'
+		]),
+		endDay() {
+			// console.log('endday')
+			this.randomizeStocks()
+		}
 	}
 }
 </script>
 
 <style scoped>
+/* .dropdown:hover>.dropdown-menu {
+  display: block;
+} */
 .container-fluid {
 margin-left: 10px;
 margin-right: 10px;

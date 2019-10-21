@@ -35,8 +35,11 @@ export default {
 </script>
 
 <style scoped>
+/* @import '../css/slide.css'; */
+
 .stock-both-padding {
 	padding-left: 30px;
 	padding-right: 30px
 }
+
 </style>
